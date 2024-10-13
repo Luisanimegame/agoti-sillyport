@@ -2622,9 +2622,6 @@ class PlayState extends MusicBeatState
 	}
 	function partyIsOver():Void
 	{
-		if (!loadRep)
-			rep.SaveReplay();
-
 		#if windows
 		if (executeModchart)
 		{
