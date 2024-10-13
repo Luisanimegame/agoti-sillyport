@@ -48,6 +48,10 @@ class CreditsState extends MusicBeatState
 				grpControls.add(controlLabel);
 			// DONT PUT X IN THE FIRST PARAMETER OF new ALPHABET() !!
 		}
+		
+		#if android
+        addVirtualPad(UP_DOWN, A_B);
+        #end
 
 		super.create();
 	}
@@ -101,10 +105,6 @@ class CreditsState extends MusicBeatState
 
 	function changeSelection(change:Int = 0)
 	{
-		#if !switch
-		// NGio.logEvent('Fresh');
-		#end
-		
 		FlxG.sound.play(Paths.sound('scrollMenu'), 0.4);
 
 		curSelected += change;

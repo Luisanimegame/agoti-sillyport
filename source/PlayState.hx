@@ -846,6 +846,11 @@ class PlayState extends MusicBeatState
 		// UI_camera.zoom = 1;
 
 		// cameras = [FlxG.cameras.list[1]];
+		
+		#if android
+        addAndroidControls();
+        #end
+		
 		startingSong = true;
 		
 		if (isStoryMode)
@@ -1091,6 +1096,7 @@ class PlayState extends MusicBeatState
 	function startCountdown():Void
 	{
 		inCutscene = false;
+		#if android androidControls.visible = true; #end
 
 		generateStaticArrows(0);
 		generateStaticArrows(1);
@@ -2082,7 +2088,7 @@ class PlayState extends MusicBeatState
 		super.update(elapsed);
 
 		scoreTxt.text = Ratings.CalculateRanking(songScore,songScoreDef,nps,accuracy);
-		if (FlxG.keys.justPressed.ENTER && startedCountdown && canPause)
+		if (FlxG.keys.justPressed.ENTER #if android || FlxG.android.justReleased.BACK #end && startedCountdown && canPause)
 		{
 			persistentUpdate = false;
 			persistentDraw = true;
