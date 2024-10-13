@@ -36,18 +36,12 @@ class OptionsMenu extends MusicBeatState
 			new SongPositionOption("Show the songs current position (as a bar)"),
 			new DownscrollOption("Change the layout of the strumline."),
 			new DistractionsAndEffectsOption("Toggle stage distractions that can hinder your gameplay."),
-			#if desktop
-			new RainbowFPSOption("Make the FPS Counter Rainbow (Only works with the FPS Counter toggeled on)"),
-			#end
 			new AccuracyOption("Display accuracy information."),
 			new NPSDisplayOption("Shows your current Notes Per Second.")
 		]),
 		
 		new OptionCatagory("Misc", [
-			#if desktop
 			new FPSOption("Toggle the FPS Counter"),
-			new ReplayOption("View replays"),
-			#end
 			new WatermarkOption("Turn off all watermarks from the engine.")
 			
 		])
@@ -90,7 +84,7 @@ class OptionsMenu extends MusicBeatState
 		add(versionShit);
 		
 		#if android
-		addVirtualPad(UP_DOWN, A_B_C);
+		addVirtualPad(LEFT_FULL, A_B_C);
 		virtualPad.y = -24;
 		#end
 
